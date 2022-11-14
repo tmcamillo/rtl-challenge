@@ -5,7 +5,7 @@ import Heading from '../Heading/Heading';
 import { getImageType } from 'utils/helpers';
 
 function App(): JSX.Element {
-  const NEWS_LIST_HERO = news.bundelItems.filter((_, index) => index > 2);
+  // const NEWS_LIST_HERO = news.bundelItems.filter((_, index) => index > 2);
   const NEWS_LIST_COLUMN = news.bundelItems.filter((_, index) => index > 2 && index <= 8);
   const NEWS_LIST_ROW = news.bundelItems.filter((_, index) => index > 8);
 
