@@ -1,3 +1,5 @@
+import { StyledCta } from './styles';
+
 export interface CTAProps {
   link: string;
   text: string;
@@ -8,15 +10,14 @@ export interface CTAProps {
 function Cta(props: CTAProps): JSX.Element {
   const { link, text, arialabel, target } = props;
   return (
-    <a
-      className='cta'
+    <StyledCta
       href={link}
       aria-label={arialabel}
       target={target ? target : '_blank'}
       rel='noreferrer'
     >
       {text}
-    </a>
+    </StyledCta>
   );
 }
 

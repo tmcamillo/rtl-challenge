@@ -3,13 +3,18 @@ import { NewsContentProvider } from 'context/NewsContext';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle, { theme } from 'styles/globalStyles';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <NewsContentProvider>
-      <App />
-    </NewsContentProvider>
+    <ThemeProvider theme={theme}>
+      <NewsContentProvider>
+        <GlobalStyle />
+        <App />
+      </NewsContentProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

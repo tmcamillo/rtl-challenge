@@ -1,21 +1,21 @@
 import { NewsContext } from 'context/NewsContext';
 import { useContext } from 'react';
 import { getImageType } from 'utils/helpers';
+import { StyledHeader, StyledImage } from './styles';
 
 function Heading(): JSX.Element {
   const { newsFull } = useContext(NewsContext);
 
   return (
-    <header className='header'>
-      <img
-        className='header__image'
+    <StyledHeader>
+      <StyledImage
         src={getImageType(newsFull.image?.crops, 'liggend_breed')}
         alt={newsFull.label}
       />
-      <p className='header__label'>{newsFull.label}</p>
-      <h1 className='header__title'>{newsFull.title}</h1>
-      <p className='header__description'>{newsFull.description}</p>
-    </header>
+      <p>{newsFull.label}</p>
+      <h1>{newsFull.title}</h1>
+      <p>{newsFull.description}</p>
+    </StyledHeader>
   );
 }
 

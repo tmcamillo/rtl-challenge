@@ -1,4 +1,3 @@
-import '../../styles/main.scss';
 import { NewsContext } from 'context/NewsContext';
 import Heading from 'components/containers/Heading/Heading';
 import CardsList from 'components/containers/CardList/CardList';

@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 import { NewsContentProvider, NewsContext } from 'context/NewsContext';
 import CardList from '../CardList';
 import newMock from '../../../../utils/data/bundle-api.json';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'styles/globalStyles';
 
 const mock = {
   newsFull: newMock,
@@ -20,11 +22,13 @@ const mockEmptyList = {
 describe('CardList component', () => {
   it('should render a list', () => {
     render(
-      <NewsContentProvider>
-        <NewsContext.Provider value={mock}>
-          <CardList />
-        </NewsContext.Provider>
-      </NewsContentProvider>
+      <ThemeProvider theme={theme}>
+        <NewsContentProvider>
+          <NewsContext.Provider value={mock}>
+            <CardList />
+          </NewsContext.Provider>
+        </NewsContentProvider>
+      </ThemeProvider>
     );
 
     const list = screen.getByRole('list');
@@ -33,54 +37,62 @@ describe('CardList component', () => {
 
   it('should not render list when its is an empty list', () => {
     render(
-      <NewsContentProvider>
-        <NewsContext.Provider value={mockEmptyList}>
-          <CardList />
-        </NewsContext.Provider>
-      </NewsContentProvider>
+      <ThemeProvider theme={theme}>
+        <NewsContentProvider>
+          <NewsContext.Provider value={mockEmptyList}>
+            <CardList />
+          </NewsContext.Provider>
+        </NewsContentProvider>
+      </ThemeProvider>
     );
     const list = screen.queryByRole('list');
     expect(list).not.toBeInTheDocument();
   });
 
-  it('should render list with the correct amount of cards and class when props value as column', () => {
+  it('should render list of cards with the correct amount and no flex-direction for a column orientation', () => {
     render(
-      <NewsContentProvider>
-        <NewsContext.Provider value={mock}>
-          <CardList orientation='column' />
-        </NewsContext.Provider>
-      </NewsContentProvider>
+      <ThemeProvider theme={theme}>
+        <NewsContentProvider>
+          <NewsContext.Provider value={mock}>
+            <CardList orientation='column' />
+          </NewsContext.Provider>
+        </NewsContentProvider>
+      </ThemeProvider>
     );
     const cards = screen.getAllByTestId('card');
     const list = screen.getByRole('list');
     expect(cards.length).toBe(9);
-    expect(list).toHaveClass('cardlist cardlist--column');
+    expect(list).not.toHaveStyle('flex-direction: column');
   });
 
-  it('should render list with the correct amount of cards and class when props value as row', () => {
+  it('should render list of cards with the correct amount and flex-direction as row', () => {
     render(
-      <NewsContentProvider>
-        <NewsContext.Provider value={mock}>
-          <CardList orientation='row' />
-        </NewsContext.Provider>
-      </NewsContentProvider>
+      <ThemeProvider theme={theme}>
+        <NewsContentProvider>
+          <NewsContext.Provider value={mock}>
+            <CardList orientation='row' />
+          </NewsContext.Provider>
+        </NewsContentProvider>
+      </ThemeProvider>
     );
     const cards = screen.getAllByTestId('card');
     const list = screen.getByRole('list');
     expect(cards.length).toBe(12);
-    expect(list).toHaveClass('cardlist cardlist--row');
+    expect(list).toHaveStyle('flex-direction: row');
   });
 
-  it('should render list class default when no props value passed down', () => {
+  it('should render list as a column by default', () => {
     render(
-      <NewsContentProvider>
-        <NewsContext.Provider value={mock}>
-          <CardList />
-        </NewsContext.Provider>
-      </NewsContentProvider>
+      <ThemeProvider theme={theme}>
+        <NewsContentProvider>
+          <NewsContext.Provider value={mock}>
+            <CardList />
+          </NewsContext.Provider>
+        </NewsContentProvider>
+      </ThemeProvider>
     );
 
     const list = screen.getByRole('list');
-    expect(list).toHaveClass('cardlist cardlist--column');
+    expect(list).not.toHaveStyle('flex-direction: column');
   });
 });
