@@ -1,4 +1,6 @@
 import { render, screen } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'styles/globalStyles';
 import Card, { CardProps } from '../Card';
 
 const props: CardProps = {
@@ -22,7 +24,11 @@ const propsWOrientation: CardProps = {
 
 describe('Card component', () => {
   it('should render card element', () => {
-    render(<Card {...props} />);
+    render(
+      <ThemeProvider theme={theme}>
+        <Card {...props} />
+      </ThemeProvider>
+    );
     const card = screen.getByTestId('card');
     const top = screen.getByText('Topline');
     const title = screen.getByText('Title');
@@ -36,19 +42,31 @@ describe('Card component', () => {
   });
 
   it('should display card with default orientation: column', () => {
-    render(<Card {...props} />);
+    render(
+      <ThemeProvider theme={theme}>
+        <Card {...props} />
+      </ThemeProvider>
+    );
     const card = screen.getByTestId('card');
-    expect(card).toHaveClass('card card--column');
+    expect(card).toHaveStyle('flex-direction: column');
   });
 
   it('should display card with props orientation: row', () => {
-    render(<Card {...propsWOrientation} />);
+    render(
+      <ThemeProvider theme={theme}>
+        <Card {...propsWOrientation} />
+      </ThemeProvider>
+    );
     const card = screen.getByTestId('card');
-    expect(card).toHaveClass('card card--row');
+    expect(card).toHaveStyle('flex-direction: row');
   });
 
   it('should display link on card', () => {
-    render(<Card {...propsWLink} />);
+    render(
+      <ThemeProvider theme={theme}>
+        <Card {...propsWLink} />
+      </ThemeProvider>
+    );
     const card = screen.getByTestId('card');
     const link = screen.getByText('Visit page');
     expect(link).toBeInTheDocument();

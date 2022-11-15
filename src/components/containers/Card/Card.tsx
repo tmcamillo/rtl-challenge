@@ -1,4 +1,5 @@
 import Cta from '../../base/Cta/Cta';
+import { StyledCard, StyledImage, StyledTextBlock } from './styles';
 
 export interface CardProps {
   top: string;
@@ -16,28 +17,19 @@ function Card(props: CardProps): JSX.Element {
   const { top, title, description, src, alt, orientation, link, linkText, arialabel } = props;
 
   return (
-    <section
-      className={`card ${orientation ? `card--${orientation}` : `card--column`}`}
-      data-testid='card'
-    >
-      <img
-        className={`card__image ${
-          orientation ? `card__image--${orientation}` : `card__image--column`
-        }`}
-        src={src}
-        alt={alt}
-      />
-      <div className='card__text'>
-        <p className='card__text__topline'>{top}</p>
-        <h4 className='card__text__title'>{title}</h4>
-        <p className='card__text__description'>{description}</p>
+    <StyledCard orientation={orientation ? orientation : 'column'} data-testid='card'>
+      <StyledImage orientation={orientation ? orientation : 'column'} src={src} alt={alt} />
+      <StyledTextBlock>
+        <p>{top}</p>
+        <h4>{title}</h4>
+        <p>{description}</p>
         {link && linkText && (
-          <div className='card__text__link'>
+          <div>
             <Cta link={link} text={linkText} arialabel={arialabel} />
           </div>
         )}
-      </div>
-    </section>
+      </StyledTextBlock>
+    </StyledCard>
   );
 }
 

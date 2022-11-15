@@ -3,6 +3,7 @@ import { IBundelItem } from '../../../utils/data/bundle-interface';
 import { getImageType } from 'utils/helpers';
 import { useContext, useEffect, useState } from 'react';
 import { NewsContext } from 'context/NewsContext';
+import { StyledCardList, StyledItem } from './styles';
 
 export interface CardListProps {
   orientation?: 'column' | 'row';
@@ -28,14 +29,11 @@ function CardsList(props: CardListProps): JSX.Element {
   }, [newsFull]);
 
   return (
-    <ul className={`cardlist ${orientation ? `cardlist--${orientation}` : `cardlist--column`}`}>
+    <StyledCardList orientation={orientation ? orientation : 'column'}>
       {listFiltered &&
         listFiltered.map((item: IBundelItem) => {
           return (
-            <li
-              key={item.id}
-              className={orientation ? `cardlist__item--${orientation}` : `cardlist__item--column`}
-            >
+            <StyledItem key={item.id} orientation={orientation ? orientation : 'column'}>
               <Card
                 top={item.chapeau}
                 title={item.titel}
@@ -47,10 +45,10 @@ function CardsList(props: CardListProps): JSX.Element {
                 arialabel={`Read more about ${item.titel}`}
                 orientation={orientation ? orientation : 'column'}
               />
-            </li>
+            </StyledItem>
           );
         })}
-    </ul>
+    </StyledCardList>
   );
 }
 
