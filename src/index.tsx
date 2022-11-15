@@ -1,13 +1,15 @@
+import App from 'components/containers/App';
+import { NewsContentProvider } from 'context/NewsContext';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
-import App from '../src/components/containers/App/App';
-
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <NewsContentProvider>
+      <App />
+    </NewsContentProvider>
   </React.StrictMode>
 );
 
