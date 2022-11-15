@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/rtl-challenge/static/css/main.5b4a78dd.css",
-    "main.js": "/rtl-challenge/static/js/main.66e6b988.js",
+    "main.css": "/rtl-challenge/static/css/main.21ab003b.css",
+    "main.js": "/rtl-challenge/static/js/main.49b6d00e.js",
     "static/js/787.086e248a.chunk.js": "/rtl-challenge/static/js/787.086e248a.chunk.js",
     "index.html": "/rtl-challenge/index.html",
-    "main.5b4a78dd.css.map": "/rtl-challenge/static/css/main.5b4a78dd.css.map",
-    "main.66e6b988.js.map": "/rtl-challenge/static/js/main.66e6b988.js.map",
+    "main.21ab003b.css.map": "/rtl-challenge/static/css/main.21ab003b.css.map",
+    "main.49b6d00e.js.map": "/rtl-challenge/static/js/main.49b6d00e.js.map",
     "787.086e248a.chunk.js.map": "/rtl-challenge/static/js/787.086e248a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b4a78dd.css",
-    "static/js/main.66e6b988.js"
+    "static/css/main.21ab003b.css",
+    "static/js/main.49b6d00e.js"
   ]
 }
