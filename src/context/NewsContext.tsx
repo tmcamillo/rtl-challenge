@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createContext, useState } from 'react';
 import { IBundleRoots } from 'utils/data/bundle-interface';
-import news from '../utils/data/bundle-api.json';
 
 export interface NewsProviderProps {
   children: React.ReactNode;
@@ -20,7 +19,7 @@ const initialValue: NewsContextType = {
 export const NewsContext = createContext<NewsContextType>(initialValue);
 
 export const NewsContentProvider = ({ children }: NewsProviderProps) => {
-  const [newsFull, setNewsFull] = useState(news as IBundleRoots);
+  const [newsFull, setNewsFull] = useState({} as IBundleRoots);
 
   return (
     <>

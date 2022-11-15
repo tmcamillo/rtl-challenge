@@ -9,7 +9,7 @@ function Heading(): JSX.Element {
     <header className='header'>
       <img
         className='header__image'
-        src={getImageType(newsFull.image.crops, 'liggend_breed')}
+        src={getImageType(newsFull.image?.crops, 'liggend_breed')}
         alt={newsFull.label}
       />
       <p className='header__label'>{newsFull.label}</p>
