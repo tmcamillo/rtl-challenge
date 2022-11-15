@@ -1,9 +1,8 @@
 @import '../styles/reset';
 @import '../styles/variables';
+@import '../styles/layout';
 
 @import '../components/base/Cta/Cta.scss';
-
-@import '../components/containers/App/App.scss';
 @import '../components/containers/CardList/CardList.scss';
 @import '../components/containers/Card/Card.scss';
 @import '../components/containers/Heading/Heading.scss';

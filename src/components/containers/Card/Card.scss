@@ -21,6 +21,8 @@
     &--row {
       @include md {
         width: 35%;
+        object-fit: cover;
+        object-position: top;
       }
     }
   }
